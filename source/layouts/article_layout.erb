@@ -1,0 +1,15 @@
+<% wrap_layout :layout do %>
+  <article>
+    <% if is_blog_article? %>
+      <header>
+        <h1><%= current_article.title %></h1>
+      </header>
+    <% end %>
+    <%= yield %>
+    <% if is_blog_article? %>
+      <footer>
+        <%= disqus %>
+      </footer>
+    <% end %>
+  </article>
+<% end %>

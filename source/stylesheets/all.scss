@@ -1,0 +1,111 @@
+//= require normalize
+//= require pygments
+
+html {
+  text-align: center;
+}
+
+body {
+  font: 16px/1.5 "proxima-nova", sans-serif;
+  color: #555;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#header {
+  background: #eee;
+  overflow: hidden;
+  padding: 1em 0;
+  margin-bottom: 1em;
+
+  h1 {
+    float: left;
+    font-size: 1em;
+    font-weight: normal;
+    font-style: italic;
+
+    a {
+      margin-right: 0.5em;
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+
+  a.twitter-follow-button, iframe {
+    float: right;
+    margin-top: 0.5em;
+  }
+}
+
+a, a:link, a:active, a:hover {
+  text-decoration: none;
+  color: #cf0600;
+}
+
+a:hover {
+  border-bottom: 1px solid;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #111;
+
+  time {
+    margin-left: 0.5em;
+    font-weight: normal;
+    color: #555;
+  }
+}
+
+#primary {
+  width: 620px;
+  float: left;
+  margin-bottom: 1.5em;
+}
+
+aside {
+  width: 320px;
+  float: right;
+}
+
+@media only screen and (max-width: 768px) {
+  #primary, aside, .container {
+    width: auto;
+    float: none;
+  }
+  #primary, aside, #header {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    time {
+      margin: 0;
+      display: block;
+    }
+  }
+}
+
+article {
+  margin-bottom: 1em;
+
+  header {
+    h1, h2 {
+      a {
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  pre {
+    background: #eee;
+    padding: 1em;
+    font: 0.8em monospace;
+  }
+}
