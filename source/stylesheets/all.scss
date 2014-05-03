@@ -109,3 +109,11 @@ article {
     font: 0.8em monospace;
   }
 }
+
+/* profile image */
+img#me {
+  float: left;
+  margin-right: 0.75em;
+  border: 1px solid #eee;
+  padding: 3px;
+}

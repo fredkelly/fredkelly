@@ -40,6 +40,9 @@
       </div>
       
       <aside>
+        <h2>Fred Who?</h2>
+        <%= image_tag("me.png", width: 85, height: 85, id: 'me') %>
+        <p>My name is Fred and I'm a <a href="https://www.linkedin.com/in/freddykelly" target="_blank">British Software Engineer</a> working in San Francisco. This (rarely updated) website serves to document my failed attempt at running a blog. If you want to hear what I'm up to then why not <a href="//twitter.com/fredkelly">follow me on Twitter</a> or <a href="#" onclick="alert('me AT fredkelly DOT net; very original&hellip;');">email me</a>.</p>
         <h2>Recent Articles</h2>
         <ol>
           <% blog.articles[0...10].each do |article| %>
