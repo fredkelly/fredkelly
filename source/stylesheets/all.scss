@@ -114,6 +114,38 @@ article {
 img#me {
   float: left;
   margin-right: 0.75em;
+}
+
+.photo {
   border: 1px solid #eee;
   padding: 3px;
+}
+
+/* dribbble list */
+#dribbble {
+  > ul {
+    list-style: none;
+    padding-left: 0;
+    overflow: hidden; // clearfix
+
+    li {
+      width: 49%;
+      float: left;
+      margin-bottom: 2%;
+
+      &:nth-child(odd) {
+        margin-right: 2%;
+      }
+
+      a {
+        border: 0;
+        display: block;
+        line-height: 0;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
 }
