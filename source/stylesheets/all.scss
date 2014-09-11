@@ -1,5 +1,5 @@
 //= require normalize
-//= require pygments
+//= require solarized-light
 
 html {
   text-align: center;
@@ -104,9 +104,8 @@ article {
   }
 
   pre {
-    background: #eee;
     padding: 1em;
-    font: 0.8em monospace;
+    font: 0.9em Consolas, "Liberation Mono", Menlo, Courier, monospace;
   }
 }
 
