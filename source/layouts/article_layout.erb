@@ -3,13 +3,13 @@
     <% if is_blog_article? %>
       <header>
         <h1><%= current_article.title %></h1>
-        <p>Published <%= show_date article.date %></p>
+        <p>Published <%= show_date current_article.date %></p>
       </header>
     <% end %>
     <%= yield %>
     <% if is_blog_article? %>
       <footer>
-        <%= disqus %>
+        <%= disqus if environment == :build %>
       </footer>
     <% end %>
   </article>
