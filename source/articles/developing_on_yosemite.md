@@ -1,6 +1,6 @@
 ---
 title: Developing on OS X Yosemite
-date: 2014-10-20
+date: 2014-10-19
 ---
 
 <img src="https://dl.dropboxusercontent.com/u/10170977/yosemite.png" width="200" style="float: right;" />
