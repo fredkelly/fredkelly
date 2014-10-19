@@ -74,14 +74,16 @@ end
 # activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
-# activate :livereload
+activate :livereload
 
 # Methods defined in the helpers block are available in templates
-# helpers do
-#   def some_helper
-#     "Helping"
-#   end
-# end
+helpers do
+  def show_date(date)
+    text = date.strftime('%b %e')
+    text << date.strftime(', %Y') if date.year != Date.today.year
+    content_tag(:time, text, datetime: date)
+  end
+end
 
 # markdown
 set :markdown_engine, :redcarpet

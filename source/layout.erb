@@ -1,14 +1,12 @@
 <!doctype html>
 <html>
   <head>
+    <title><%= current_page.data.title %></title>
     <meta charset="utf-8" />
     <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="My name is Fred Kelly and I'm a British Software Engineer working in San Francisco, CA. This (rarely updated) website serves to document my failed attempt at running a blog." />
-    <title>Fred Kelly<%= ' &mdash; ' + current_article.title if is_blog_article? %></title>
     <%= stylesheet_link_tag :all %>
     <script src="//use.typekit.net/jqa8prk.js"></script>
-    <script src="//squaresend.com/squaresend.js"></script>
     <script>
       try {
         Typekit.load();
@@ -27,50 +25,18 @@
     <link rel="shortcut icon" href="<%= image_path "favicon.png" %>" />
   </head>
   <body>
-
-    <div id="header">
-      <div class="container">
-        <h1><a href="/">Fred Kelly</a> British CS Graduate lost in Silicon Valley.</h1>
-        <a href="https://twitter.com/fredkelly" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @fredkelly</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      </div>
-    </div>
     
     <div class="container">
+
+      <div id="header">
+        <h1><%= link_to "Freddy Kelly", "/" %></h1>
+        <p>British Computer Science graduate lost in Silicon Valley.</p>
+      </div>
+
       <div id="primary">
         <%= yield %>
       </div>
-      
-      <aside>
-        <div itemscope itemtype="http://data-vocabulary.org/Person">
-          <h2><span itemprop="nickname">Fred</span> Who?</h2>
-          <%= image_tag("me.png", width: 85, height: 85, id: 'me', itemprop: 'photo') %>
-          <p>My name is <span itemprop="name">Fred Kelly</span> and I'm a <a href="https://www.linkedin.com/in/freddykelly" target="_blank" itemprop="url">British <span itemprop="title">Software Engineer<span></a> working in <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address"><span itemprop="locality">San Francisco</span>, <span itemprop="region">CA</span></span>. This (rarely updated) website serves to document my failed attempt at running a blog. If you want to hear what I'm up to then why not <a href="//twitter.com/fredkelly">follow me on Twitter</a> or <a href="mailto:me@fredkelly.net">email me</a>.</p>
-        </div>
-
-        <h2>My Projects</h2>
-        <div id="dribbble">
-          <p>Loading&hellip;</p>
-        </div>
-
-        <h2>Recent Articles</h2>
-        <ol>
-          <% blog.articles[0...10].each do |article| %>
-            <li><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e') %></span></li>
-          <% end %>
-        </ol>
-
-        <h2>By Year</h2>
-        <ol>
-          <% blog.articles.group_by {|a| a.date.year }.each do |year, articles| %>
-            <li><%= link_to year, blog_year_path(year) %> (<%= articles.size %>)</a></li>
-          <% end %>
-        </ol>
-      </aside>
     </div>
-    <%= javascript_include_tag :dribbble %>
-    <script>
-      getShotsForID(['fredkelly'], 'dribbble', 6);
-    </script>
+
   </body>
 </html>

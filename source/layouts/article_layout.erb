@@ -3,6 +3,7 @@
     <% if is_blog_article? %>
       <header>
         <h1><%= current_article.title %></h1>
+        <p>Published <%= show_date article.date %></p>
       </header>
     <% end %>
     <%= yield %>

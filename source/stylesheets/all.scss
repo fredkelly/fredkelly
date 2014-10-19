@@ -1,101 +1,114 @@
 //= require normalize
 //= require solarized-light
 
+$serif-font: "chaparral-pro", Cambria, Georgia, serif;
+$mono-font: "inconsolata", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+$sans-font: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+
+$text-color: #555;
+$link-color: #06c;
+$meta-color: #999;
+$heading-color: #111;
+$brand-color: #ee6650;
+$border-color: #ddd;
+
+$break-width: 640px;
+
 html {
   text-align: center;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
-  font: 16px/1.5 "proxima-nova", sans-serif;
-  color: #555;
+  font: 300 18px/1.5 $serif-font;
+  color: $text-color;
+  margin: 3em 0;
 }
 
 .container {
-  width: 960px;
+  width: $break-width;
   margin: 0 auto;
   text-align: left;
+
+  @media (max-width: $break-width) {
+    width: 90%;
+  }
 }
 
 #header {
-  background: #eee;
-  overflow: hidden;
-  padding: 1em 0;
-  margin-bottom: 1em;
+  border-bottom: 1px solid $border-color;
 
   h1 {
-    float: left;
-    font-size: 1em;
-    font-weight: normal;
-    font-style: italic;
+    font-weight: 600;
+
+    @media (max-width: $break-width) {
+      text-align: center;
+    }
 
     a {
-      margin-right: 0.5em;
-      font-style: normal;
-      font-weight: bold;
-    }
-  }
+      display: inline-block;
+      border-bottom: none;
 
-  a.twitter-follow-button, iframe {
-    float: right;
-    margin-top: 0.5em;
+      color: #fff;
+      background-color: $brand-color;
+
+      padding: 0.5em;
+      line-height: 1;
+    }
   }
 }
 
 a, a:link, a:active, a:hover {
+  color: $link-color;
   text-decoration: none;
-  color: #cf0600;
-}
-
-a:hover {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid $border-color;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #111;
+  color: $brand-color;
+  margin-bottom: 0;
+}
 
-  time {
-    margin-left: 0.5em;
-    font-weight: normal;
-    color: #555;
+section {
+  margin-bottom: 2em;
+}
+
+/* about section */
+#about {
+  overflow: hidden;
+
+  img {
+    float: right;
+    margin-left: 1em;
   }
 }
 
-#primary {
-  width: 620px;
-  float: left;
-  margin-bottom: 1.5em;
+time {
+  color: $meta-color;
+  font-style: italic;
 }
 
-aside {
-  width: 320px;
-  float: right;
-}
+/* articles index */
+#articles {
+  ol {
+    list-style: disc;
 
-@media only screen and (max-width: 768px) {
-  #primary, aside, .container {
-    width: auto;
-    float: none;
-  }
-  #primary, aside, #header {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    time {
-      margin: 0;
-      display: block;
+    > li {
+      margin-bottom: 0.5em;
+
+      p {
+        display: inline;
+      }
     }
   }
 }
 
+/* individual article */
 article {
-  margin-bottom: 1em;
-
   header {
-    h1, h2 {
-      a {
-        border-bottom: 1px solid #ddd;
-      }
+    p {
+      margin-top: 0;
+      font-size: 1.2em;
     }
   }
 
@@ -105,46 +118,6 @@ article {
 
   pre {
     padding: 1em;
-    font: 0.9em Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  }
-}
-
-/* profile image */
-img#me {
-  float: left;
-  margin-right: 0.75em;
-}
-
-.photo {
-  border: 1px solid #eee;
-  padding: 3px;
-}
-
-/* dribbble list */
-#dribbble {
-  > ul {
-    list-style: none;
-    padding-left: 0;
-    overflow: hidden; // clearfix
-
-    li {
-      width: 49%;
-      float: left;
-      margin-bottom: 2%;
-
-      &:nth-child(odd) {
-        margin-right: 2%;
-      }
-
-      a {
-        border: 0;
-        display: block;
-        line-height: 0;
-
-        img {
-          max-width: 100%;
-        }
-      }
-    }
+    font: 0.8em/1.4 $mono-font;
   }
 }

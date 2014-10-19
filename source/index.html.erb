@@ -1,26 +1,27 @@
 ---
-pageable: true
-per_page: 10
+title: "Freddy Kelly"
 ---
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
+<section id="articles">
+  <h2>Articles</h2>
+  <ol>
+    <% page_articles.each do |article| %>
+      <li>
+        <%= link_to article.title, article %>
+        <p>Published <%= show_date article.date %></p>
+      </li>
+    <% end %>
+  </ol>
+</section>
 
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
-
-<% page_articles.each_with_index do |article, i| %>
-  <article>
-    <header>
-      <h2><%= link_to article.title, article %> <time datetime="<%= article.date %>"><%= article.date.strftime('%b %e') %></time></h2>
-    </header>
-    <%= article.summary(250) %>
-  </article>
-<% end %>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
+<section id="about" itemscope itemtype="http://data-vocabulary.org/Person">
+  <h2><span itemprop="nickname">Fred</span> Who?</h2>
+  <%= image_tag "me.png", width: 200, itemprop: "photo" %>
+  <p>My name is <span itemprop="name">Fred Kelly</span> and I'm a <a href="https://www.linkedin.com/in/freddykelly" target="_blank" itemprop="url">British <span itemprop="title">Software Engineer<span></a> working in <span itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address"><span itemprop="locality">San Francisco</span>, <span itemprop="region">CA</span></span>. This (rarely updated) website serves to document my failed attempt at running a blog. If you want to hear what I'm up to then why not <a href="//twitter.com/fredkelly">follow me on Twitter</a> or <a href="mailto:me@fredkelly.net">email me</a>.</p>
+  <h3>Elsewhere&hellip;</h3>
+  <ul>
+    <li><a href="//twitter.com/fredkelly">Twitter</a></li>
+    <li><a href="//github.com/fredkelly">GitHub</a></li>
+    <li><a href="//dribbble.com/fredkelly">Dribbble</a></li>
+    <li><a href="//angel.co/fredkelly">AngelList</a></li>
+  </ul>
+</section>
