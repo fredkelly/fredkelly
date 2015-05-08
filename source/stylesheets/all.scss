@@ -80,6 +80,7 @@ section {
   img {
     float: right;
     margin-left: 1em;
+    shape-outside: image-url("me.png");
   }
 }
 
