@@ -17,6 +17,7 @@ $break-width: 640px;
 html {
   text-align: center;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 body {
